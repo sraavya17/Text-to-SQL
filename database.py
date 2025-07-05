@@ -19,6 +19,7 @@ def database_connection():
     except mysql.connector.Error as err:
         print(f"Error: {err}")
         return None
+    
 
 def database_schema():
     """Return the schema of the database as a string"""
@@ -28,20 +29,20 @@ def database_schema():
         cursor = conn.cursor()
         cursor.execute("SHOW TABLES")
         tables = [table[0] for table in cursor.fetchall()]
-        print("Tables in the database:", tables)
+        #print("Tables in the database:", tables)
         schema_info = []
         for table in tables:
             cursor.execute(f'DESCRIBE {table}')
             columns = cursor.fetchall()
             schema_info.append(f"Table '{table}' : {columns}")
-        return "\n".join(schema_info)
+        return tables, "\n".join(schema_info)
     except mysql.connector.Error as err:
         print(f"Error: {err}")
     finally:
         if conn and conn.is_connected():
             cursor.close()
             conn.close()
-            print("Database connection closed.")
+            #print("Database connection closed.")
 
 def execute_query(query):
     """Execute a given SQL query and return the results"""
@@ -72,7 +73,7 @@ def execute_query(query):
         if conn and conn.is_connected():
             cursor.close()
             conn.close()
-            print("Database connection closed.")
+            #print("Database connection closed.")
 
 
 if __name__ == "__main__":
