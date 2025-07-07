@@ -20,9 +20,9 @@ This project is an **AI-powered chatbot** built using **Streamlit** and **OpenRo
 ## 📁 Project Structure
 
 .
-├── app.py                 # Streamlit frontend
-├── main.py                # CLI interaction & LLM-based SQL generation
-├── database.py            # DB connection, schema extraction, query execution
-├── .env                   # Your environment variables (not included in Git)
-├── requirements.txt       # Project dependencies
-└── README.md              # Project documentation
+├── app.py                 
+├── main.py                
+├── database.py            
+├── .env                   
+├── requirements.txt       
+└── README.md              
